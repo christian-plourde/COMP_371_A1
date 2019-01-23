@@ -57,7 +57,7 @@ int main()
     std::vector<glm::vec3> vertices, normals;
     std::vector<glm::vec2> uvs;
     //we try to load the object file and if we fail, then we simply exit the program since we won't be able to draw anything
-    if(!LoadOBJ("../ObjectFiles/cube.obj", vertices, normals, uvs))
+    if(!LoadOBJ("../ObjectFiles/cat.obj", vertices, normals, uvs))
         return -1;
 
     //We will try to create a cube by using a vertex array object
@@ -87,9 +87,9 @@ int main()
     //glm::mat4 Projection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.0f, 100.0f);
 
     //we then need a camera matrix
-    //this specifies that the camera should be at 4, 3, 3
-    //and looking at 0, 0, 0 which is the origin, while pointing up (0, 1, 0)
-    glm::mat4 View = glm::lookAt(glm::vec3(4, 3, -3), glm::vec3(0,0,0), glm::vec3(0, 1, 0));
+    //this specifies that the camera should be at 40, 40, -10
+    //and looking at -5, 10, 15 which is the origin, while pointing in the direction (1, 1, 1)
+    glm::mat4 View = glm::lookAt(glm::vec3(40, 40, -10), glm::vec3(-5,10,15), glm::vec3(1, 1, 1));
 
     //this is the model matrix (the identity matrix since we are placing the mode (our triangle) at the origin.
     //also changing this will modify what the final triangle looks like. This is where we apply transformations
@@ -128,7 +128,7 @@ int main()
         glDepthFunc(GL_LESS);
 
         //here we need to specify 36 since we are drawing 36 vertices as explained above
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
         glDisableVertexAttribArray(0);
 
         // Swap front and back buffers
