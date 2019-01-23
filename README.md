@@ -1,0 +1,2 @@
+This is a template for a simple OPEN GL project in CLION. It creates a red cube and views it from a perspective view. I have
+included an object file loader as well as a shader loader which compiles a vertex and fragment shader and returns a program id to be used by OPENGL.
