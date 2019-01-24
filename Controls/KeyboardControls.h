@@ -38,3 +38,19 @@ void key_press_a(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm
  * once we have recalculated the location of the camera.
  */
 void key_press_d(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defines what occurs when the o key is pressed on the keyboard. For this assignment, it modifies
+ * the size uniformly of the object and so to change this, we need to pass in the View, Projection, and Model
+ * matrices, as well as the shader ID since we will need to update the value in the uniform in the shader program
+ * once we have recalculated the size of the model.
+ */
+void key_press_o(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defines what occurs when the p key is pressed on the keyboard. For this assignment, it modifies
+ * the size uniformly of the object and so to change this, we need to pass in the View, Projection, and Model
+ * matrices, as well as the shader ID since we will need to update the value in the uniform in the shader program
+ * once we have recalculated the size of the model.
+ */
+void key_press_p(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);

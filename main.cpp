@@ -102,12 +102,15 @@ int main()
     int width; //the width of the window
     int height; //the height of the window
     glfwGetWindowSize(window, &width, &height);
-    glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float) width/(float) height, 0.1f, 100.0f);
+
+    //this creates an orthographic projection matrix which we will use to render our object
+    glm::mat4 Projection = glm::ortho((float)width*(-1)/8, (float)width/8, (float)height*(-1)/8, (float)height/8, -500.0f, 500.0f);
+
 
     //we then need a camera matrix
-    //this specifies that the camera should be at 40, 40, -10
-    //and looking at -5, 10, 15 which is the origin, while pointing in the direction (1, 1, 1)
-    glm::mat4 View = glm::lookAt(glm::vec3(-60, -60, 15), glm::vec3(10,10,30), glm::vec3(1, 1, 1));
+    //for now we can just use an identity matrix for this camera
+    glm::mat4 View(1.0f);
+
 
     //this is the model matrix (the identity matrix since we are placing the mode (our triangle) at the origin.
     //also changing this will modify what the final triangle looks like. This is where we apply transformations
@@ -146,7 +149,7 @@ int main()
         glDepthFunc(GL_LESS);
 
         //here we need to specify the number of vertices we wish to draw
-        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+        glDrawArrays(GL_POINTS, 0, vertices.size());
         glDisableVertexAttribArray(0);
 
         // Swap front and back buffers
@@ -168,6 +171,12 @@ int main()
 
         if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
             key_press_d(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+            key_press_o(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
+            key_press_p(window, View, Projection, Model, programID);
     }
 
     glfwTerminate();
