@@ -86,6 +86,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/Controls/KeyboardControls.cpp">
+			<Option target="COMP_371_A1"/>
+		</Unit>
+		<Unit filename="D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/Controls/KeyboardControls.h">
+			<Option target="COMP_371_A1"/>
+		</Unit>
 		<Unit filename="D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/Loaders/ObjectLoader.cpp">
 			<Option target="COMP_371_A1"/>
 		</Unit>

@@ -122,6 +122,33 @@ COMP_371_A1/fast:
 	$(MAKE) -f CMakeFiles\COMP_371_A1.dir\build.make CMakeFiles/COMP_371_A1.dir/build
 .PHONY : COMP_371_A1/fast
 
+Controls/KeyboardControls.obj: Controls/KeyboardControls.cpp.obj
+
+.PHONY : Controls/KeyboardControls.obj
+
+# target to build an object file
+Controls/KeyboardControls.cpp.obj:
+	$(MAKE) -f CMakeFiles\COMP_371_A1.dir\build.make CMakeFiles/COMP_371_A1.dir/Controls/KeyboardControls.cpp.obj
+.PHONY : Controls/KeyboardControls.cpp.obj
+
+Controls/KeyboardControls.i: Controls/KeyboardControls.cpp.i
+
+.PHONY : Controls/KeyboardControls.i
+
+# target to preprocess a source file
+Controls/KeyboardControls.cpp.i:
+	$(MAKE) -f CMakeFiles\COMP_371_A1.dir\build.make CMakeFiles/COMP_371_A1.dir/Controls/KeyboardControls.cpp.i
+.PHONY : Controls/KeyboardControls.cpp.i
+
+Controls/KeyboardControls.s: Controls/KeyboardControls.cpp.s
+
+.PHONY : Controls/KeyboardControls.s
+
+# target to generate assembly for a file
+Controls/KeyboardControls.cpp.s:
+	$(MAKE) -f CMakeFiles\COMP_371_A1.dir\build.make CMakeFiles/COMP_371_A1.dir/Controls/KeyboardControls.cpp.s
+.PHONY : Controls/KeyboardControls.cpp.s
+
 Loaders/ObjectLoader.obj: Loaders/ObjectLoader.cpp.obj
 
 .PHONY : Loaders/ObjectLoader.obj
@@ -212,6 +239,9 @@ help:
 	@echo ... COMP_371_A1
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Controls/KeyboardControls.obj
+	@echo ... Controls/KeyboardControls.i
+	@echo ... Controls/KeyboardControls.s
 	@echo ... Loaders/ObjectLoader.obj
 	@echo ... Loaders/ObjectLoader.i
 	@echo ... Loaders/ObjectLoader.s

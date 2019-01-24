@@ -5,6 +5,7 @@
 #include "GLM/glm/gtc/matrix_transform.hpp"
 #include "Loaders/ShaderLoader.h"
 #include "Loaders/ObjectLoader.h"
+#include "Controls/KeyboardControls.h"
 
 /*
  * This is the method that will execute when there is input from the keyboard.
@@ -35,8 +36,8 @@ static GLFWwindow* initialize()
         return nullptr;
 
     // Create a windowed mode window and its OpenGL context
-    int width =  640;
-    int height = 480;
+    int width =  800;
+    int height = 800;
     window = glfwCreateWindow(width, height, "COMP 371 A1", NULL, NULL);
     if (!window)
     {
@@ -103,13 +104,10 @@ int main()
     glfwGetWindowSize(window, &width, &height);
     glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float) width/(float) height, 0.1f, 100.0f);
 
-    //in order to make the camera ortho, we would use the following projection matrix
-    //glm::mat4 Projection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.0f, 100.0f);
-
     //we then need a camera matrix
     //this specifies that the camera should be at 40, 40, -10
     //and looking at -5, 10, 15 which is the origin, while pointing in the direction (1, 1, 1)
-    glm::mat4 View = glm::lookAt(glm::vec3(40, 40, -10), glm::vec3(-5,10,15), glm::vec3(1, 1, 1));
+    glm::mat4 View = glm::lookAt(glm::vec3(-60, -60, 15), glm::vec3(10,10,30), glm::vec3(1, 1, 1));
 
     //this is the model matrix (the identity matrix since we are placing the mode (our triangle) at the origin.
     //also changing this will modify what the final triangle looks like. This is where we apply transformations
@@ -136,7 +134,7 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //now we can draw our triangle
-        //to do this we need to tell open GL about our vertex array (id 0) and also our color array(id 1)
+        //to do this we need to tell open GL about our vertex array (id 0)
         glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
@@ -147,7 +145,7 @@ int main()
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
 
-        //here we need to specify 36 since we are drawing 36 vertices as explained above
+        //here we need to specify the number of vertices we wish to draw
         glDrawArrays(GL_TRIANGLES, 0, vertices.size());
         glDisableVertexAttribArray(0);
 
@@ -157,6 +155,19 @@ int main()
         //check if there was input
         //this includes clicking the close button on the window
         glfwPollEvents();
+
+        //here we define what occurs if specific keys are pressed
+        if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+            key_press_w(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+            key_press_s(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+            key_press_a(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+            key_press_d(window, View, Projection, Model, programID);
     }
 
     glfwTerminate();

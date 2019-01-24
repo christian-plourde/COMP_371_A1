@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/Controls/KeyboardControls.cpp" "D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/cmake-build-debug/CMakeFiles/COMP_371_A1.dir/Controls/KeyboardControls.cpp.obj"
   "D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/Loaders/ObjectLoader.cpp" "D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/cmake-build-debug/CMakeFiles/COMP_371_A1.dir/Loaders/ObjectLoader.cpp.obj"
   "D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/Loaders/ShaderLoader.cpp" "D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/cmake-build-debug/CMakeFiles/COMP_371_A1.dir/Loaders/ShaderLoader.cpp.obj"
   "D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/main.cpp" "D:/Computer Science Assignments/COMP 371 Assignments/COMP_371_A1/cmake-build-debug/CMakeFiles/COMP_371_A1.dir/main.cpp.obj"
