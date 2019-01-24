@@ -7,6 +7,23 @@
 #include "Loaders/ObjectLoader.h"
 
 /*
+ * This is the method that will execute when there is input from the keyboard.
+ * For this method to be a valid callback method for the keyboard, it must match the proper signature,
+ * which is the one used for this method.
+ */
+void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+    /*
+     * This defines what happens when the escape key is pressed. In our case, we would like the escape key to close
+     * the currently used window
+     */
+    if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+    {
+        glfwSetWindowShouldClose(window, true);
+    }
+}
+
+/*
  * Method to handle the initialization process of the window
  */
 static GLFWwindow* initialize()
@@ -20,7 +37,7 @@ static GLFWwindow* initialize()
     // Create a windowed mode window and its OpenGL context
     int width =  640;
     int height = 480;
-    window = glfwCreateWindow(width, height, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(width, height, "COMP 371 A1", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -29,6 +46,9 @@ static GLFWwindow* initialize()
 
     // Make the window's context current
     glfwMakeContextCurrent(window);
+
+    //we should also set the keyboard input callback method
+    glfwSetKeyCallback(window, keyboard_callback);
 
     glewExperimental = GL_TRUE;
 
