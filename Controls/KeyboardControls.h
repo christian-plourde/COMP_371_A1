@@ -54,3 +54,81 @@ void key_press_o(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm
  * once we have recalculated the size of the model.
  */
 void key_press_p(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defines what occurs when the left arrow key is pressed on the keyboard. When this occurs, the camera
+ * should rotate counterclockwise about the up vector.
+ */
+void key_press_left_arrow(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defines what occurs when the right arrow key is pressed on the keyboard. When this occurs, the camera
+ * should rotate clockwise about the up vector.
+ */
+void key_press_right_arrow(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defines what occurs when the up arrow key is pressed on the keyboard. When this occurs, the camera
+ * should rotate counterclockwise about the right vector.
+ */
+void key_press_up_arrow(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defines what occurs when the down arrow key is pressed on the keyboard. When this occurs, the camera
+ * should rotate clockwise about the right vector.
+ */
+void key_press_down_arrow(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when b is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be rotated about the x axis in counterclockwise fashion
+ */
+void key_press_b(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when n is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be rotated about the y axis in counterclockwise fashion
+ */
+void key_press_n(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when e is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be rotated about the z axis in counterclockwise fashion
+ */
+void key_press_e(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when j is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be translated along the x axis in the positive direction
+ */
+void key_press_j(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when l is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be translated along the x axis in the negative direction
+ */
+void key_press_l(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when i is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be translated along the y axis in the positive direction
+ */
+void key_press_i(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when k is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be translated along the y axis in the negative direction
+ */
+void key_press_k(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when page up is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be translated along the z axis in the positive direction
+ */
+void key_press_pg_up(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defined what happens when page down is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * will be translated along the z axis in the negative direction
+ */
+void key_press_pg_down(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);

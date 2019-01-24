@@ -103,14 +103,10 @@ int main()
     int height; //the height of the window
     glfwGetWindowSize(window, &width, &height);
 
-    //this creates an orthographic projection matrix which we will use to render our object
-    glm::mat4 Projection = glm::ortho((float)width*(-1)/8, (float)width/8, (float)height*(-1)/8, (float)height/8, -500.0f, 500.0f);
-
-
-    //we then need a camera matrix
-    //for now we can just use an identity matrix for this camera
-    glm::mat4 View(1.0f);
-
+    //this creates an perspective projection matrix which we will use to render our object
+    glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float)width/height, 0.1f, 200.0f);
+    //we then need a camera matrix, we will make it look at the origin
+    glm::mat4 View = glm::lookAt(glm::vec3(0,0,-40),glm::vec3(0,0,0), glm::vec3(0, 1, 0));
 
     //this is the model matrix (the identity matrix since we are placing the mode (our triangle) at the origin.
     //also changing this will modify what the final triangle looks like. This is where we apply transformations
@@ -160,6 +156,8 @@ int main()
         glfwPollEvents();
 
         //here we define what occurs if specific keys are pressed
+        //the functions are defined in the keyboard controls file, we are simply calling them based on
+        //which key is pressed
         if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
             key_press_w(window, View, Projection, Model, programID);
 
@@ -177,6 +175,45 @@ int main()
 
         if(glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
             key_press_p(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+            key_press_left_arrow(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+            key_press_right_arrow(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+            key_press_up_arrow(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+            key_press_down_arrow(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
+            key_press_b(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
+            key_press_n(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+            key_press_e(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+            key_press_j(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+            key_press_l(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
+            key_press_i(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+            key_press_k(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_PAGE_UP) == GLFW_PRESS)
+            key_press_pg_up(window, View, Projection, Model, programID);
+
+        if(glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_PRESS)
+            key_press_pg_down(window, View, Projection, Model, programID);
     }
 
     glfwTerminate();
