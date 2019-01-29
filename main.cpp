@@ -50,6 +50,7 @@ static GLFWwindow* initialize()
 
     //we should also set the keyboard input callback method
     glfwSetKeyCallback(window, keyboard_callback);
+    glfwWindowHint(GLFW_DOUBLEBUFFER, 1);
 
     glewExperimental = GL_TRUE;
 
@@ -121,6 +122,12 @@ int main()
 
     //now that we have an identifier for it, we should set it to our bound shader, the vertex shader
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+
+    //we need to defined two doubles to hold the old and new positions of the mouse cursor so we can check
+    //which direction the user is moving the mouse in.
+
+    double oldMouseY = 0;
+    double newMouseY = 0;
 
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
@@ -214,6 +221,20 @@ int main()
 
         if(glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_PRESS)
             key_press_pg_down(window, View, Projection, Model, programID);
+
+        //before dealing with the mouse input, we need to get the current position of the mouse and compare it to
+        //the old. Since we don't care about x, we can just pass 0.
+
+        glfwGetCursorPos(window, &newMouseY, 0);
+
+        if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && newMouseY > oldMouseY)
+            key_press_lm_button_up(window, View, Projection, Model, programID);
+
+        if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && newMouseY < oldMouseY)
+            key_press_lm_button_down(window, View, Projection, Model, programID);
+
+        //update the last position of the mouse
+        oldMouseY = newMouseY;
     }
 
     glfwTerminate();

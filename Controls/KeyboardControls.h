@@ -128,7 +128,22 @@ void key_press_k(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm
 void key_press_pg_up(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
 
 /*
- * This method defined what happens when page down is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
+ * This method defines what happens when page down is pressed on the keyboard. When this occurs, the OBJECT (i.e. the model)
  * will be translated along the z axis in the negative direction
  */
 void key_press_pg_down(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defines what happens when the left mouse button is pressed. This should move the camera in and out of
+ * the scene. If the mouse is moved up while the left button is clicked, then the camera should move in. Down should
+ * make the camera move out of the scene.
+ */
+void key_press_lm_button_up(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+
+/*
+ * This method defines what happens when the left mouse button is pressed. This should move the camera in and out of
+ * the scene. If the mouse is moved up while the left button is clicked, then the camera should move in. Down should
+ * make the camera move out of the scene.
+ */
+void key_press_lm_button_down(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID);
+

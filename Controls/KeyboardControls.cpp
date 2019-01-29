@@ -129,7 +129,7 @@ void key_press_n(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm
 
 void key_press_e(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID)
 {
-    //when the n key is pressed, the OBJECT itself (not the camera) should be rotated about the y-axis.
+    //when the n key is pressed, the OBJECT itself (not the camera) should be rotated about the z-axis.
     //in order to do this, we want to modify the Model matrix
     Model = glm::rotate(Model, glm::radians(0.05f), glm::vec3(0,0,1));
     glm::mat4 MVP = Projection*View*Model;
@@ -198,6 +198,22 @@ void key_press_pg_down(GLFWwindow* window, glm::mat4& View, glm::mat4& Projectio
     //in the negative direction
     //in order to do this, we want to modify the Model matrix
     Model = glm::translate(Model, glm::vec3(0, 0 , -0.05f));
+    glm::mat4 MVP = Projection*View*Model;
+    GLuint MatrixID = glGetUniformLocation(ShaderID, "MVP");
+    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+}
+
+void key_press_lm_button_up(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID)
+{
+    View = glm::translate(View, glm::vec3(0,0,0.1));
+    glm::mat4 MVP = Projection*View*Model;
+    GLuint MatrixID = glGetUniformLocation(ShaderID, "MVP");
+    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+}
+
+void key_press_lm_button_down(GLFWwindow* window, glm::mat4& View, glm::mat4& Projection, glm::mat4& Model, GLuint& ShaderID)
+{
+    View = glm::translate(View, glm::vec3(0,0,-0.1));
     glm::mat4 MVP = Projection*View*Model;
     GLuint MatrixID = glGetUniformLocation(ShaderID, "MVP");
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
